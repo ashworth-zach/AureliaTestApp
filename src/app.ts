@@ -1,6 +1,9 @@
 import {inject} from 'aurelia-framework';
 import {DependencyTest} from './dependency-test';
+import { Http2ServerRequest } from 'http2';
+import {HttpClient, json} from 'aurelia-fetch-client';
 
+let httpClient = new HttpClient();
 @inject(DependencyTest)
 
 
@@ -13,6 +16,28 @@ export class App {
     console.log(DependencyTest.test);
 
   }
+  getData() {
+    httpClient.fetch('https://pokeapi.co/api/v2/pokemon/ditto/')
+    .then(response => response.json())
+    .then(data => {
+       console.log(data);
+    });
+ }
+ myPostData(){
+   header:this.header;
+   content:this.content;
+ }
+ postData(myPostData) {
+  httpClient.fetch('http://jsonplaceholder.typicode.com/posts', {
+     method: "POST",
+     body: JSON.stringify(myPostData)
+  })
+
+  .then(response => response.json())
+  .then(data => {
+     console.log(data);
+  });
+}
   updateContent() {
     this.header = 'This is NEW header...'
     this.content = 'This is NEW content...';

@@ -1,8 +1,14 @@
 <template>
-   <require from = "./components/custom-component.html"></require>
+  <require from = "./components/custom-component.html"></require>
+  <require from="./style.css"></require>
   <h1>${header}</h1>
   <p>${content}</p>
+  <input id = "headerinput" type = "text" value.bind = "header" /> 
+  <!-- Throttle and debounce for delaying input/oneTime only binds once -->
   <button click.delegate = "updateContent()">Update Content</button>
   <button click.delegate = "resetContent()">Reset Content</button>
+  <button click.trigger = "getData()">CLICK ME TO GET DATA</button>
+  <button click.trigger = "postData()">CLICK ME TO POST DATA</button>
+
   <custom-component></custom-component>
 </template>

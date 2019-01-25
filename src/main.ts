@@ -11,8 +11,13 @@ Bluebird.config({ warnings: { wForgottenReturn: false } });
 export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
-    .feature(PLATFORM.moduleName('resources/index'));
-
+    .feature(PLATFORM.moduleName('resources/index'))
+    .defaultBindingLanguage()
+   .defaultResources()
+   .developmentLogging()
+   .router()
+   .history()
+   .eventAggregator();
   // Uncomment the line below to enable animation.
   // aurelia.use.plugin(PLATFORM.moduleName('aurelia-animator-css'));
   // if the css animator is enabled, add swap-order="after" to all router-view elements
