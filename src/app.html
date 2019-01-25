@@ -1,7 +1,8 @@
 <template>
+   <require from = "./components/custom-component.html"></require>
   <h1>${header}</h1>
   <p>${content}</p>
   <button click.delegate = "updateContent()">Update Content</button>
   <button click.delegate = "resetContent()">Reset Content</button>
-
+  <custom-component></custom-component>
 </template>
